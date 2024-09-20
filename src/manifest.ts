@@ -7,23 +7,10 @@ import { version } from '../package.json';
 
 const manifest = defineManifest(async (env) => ({
   manifest_version: 3,
-  name: `${env.mode === 'development' ? '[Dev] ' : ''}Browser Extension TypeScript & React Starter`,
-  description: 'Browser Extension, TypeScript, React',
+  name: `${env.mode === 'development' ? '[Dev] ' : ''}Save to Cosense`,
+  description: 'Save web page to your Cosense',
   version,
-  background: {
-    service_worker: 'background/index.ts',
-  },
-  content_scripts: [
-    {
-      matches: ['http://*/*', 'https://*/*', 'file:///*'],
-      js: ['content/index.tsx'],
-    },
-  ],
   host_permissions: ['<all_urls>'],
-  options_ui: {
-    page: 'options/options.html',
-    open_in_tab: true,
-  },
   web_accessible_resources: [
     {
       resources: [
